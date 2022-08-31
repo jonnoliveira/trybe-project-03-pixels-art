@@ -48,7 +48,6 @@ localPalet.appendChild(button);
 
 //// FUNÇÃO BOTÃO - ALEATORIEDADE DAS CORES
 
-
 function btnRandomColor() {
   let btn = document.getElementById("button-random-color");
   let divIndex = document.getElementsByClassName("color");
@@ -60,3 +59,36 @@ function btnRandomColor() {
 }
 
 btnRandomColor();
+
+///// LOCAL STORAGE
+
+function saveColorsPallete() {
+  let btn = document.getElementById("button-random-color");
+  let divIndex = document.getElementsByClassName("color");
+
+  btn.addEventListener("click", function (colorRandom) {
+    let colorStorage = [];
+    /// PARA CADA INDICE PRESENTE (CADA DIV QUE RECEBE A COR);
+    for (index = 0; index < divIndex.length; index += 1) {
+      /// ARMAZENO TODAS INFORMAÇÕES DE ESTILO DA DIV[INDEX] >> object; (MDN)
+      let object = window.getComputedStyle(divIndex[index], null);
+      /// SEPARO A PROPRIEDADE DE ESTILO QUE ME INTERESSA (background-color) E ARMAZENO NO >> styleObj;
+      let styleObj = object.getPropertyValue("background-color");
+      /// ARMAZENO AS INFORMAÇÕES DAS CORES DO BG (RGB) NO >> colorStorage;
+      colorStorage.push(styleObj);
+      /// ARMAZENO AS INFORMAÇÕES DAS CORES NO >> localStorage, PASSANDO A CHAVE;
+      localStorage.setItem("colorPalette", JSON.stringify(colorStorage));
+    }
+  });
+  /// TRASFORMO A INFO ARMAZENADA
+  let memory = JSON.parse(localStorage.getItem("colorPalette"));
+  /// PARA CADA INDICE PRESENTE (CADA DIV QUE RECEBE A COR);
+  for (index in memory) {
+    /// MUDO A COR ORIGINAL PARA AS CORES ARMAZENADAS;
+    divIndex[index].style.backgroundColor = memory[index];
+  }
+}
+
+saveColorsPallete();
+
+
