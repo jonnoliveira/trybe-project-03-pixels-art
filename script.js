@@ -91,4 +91,22 @@ function saveColorsPallete() {
 
 saveColorsPallete();
 
+///// PIXEL BOARD E COR INICIAL PIXELS
+
+let pixelBoard = document.getElementById("pixel-board");
+pixelBoard.style.width = "250px";
+pixelBoard.style.textAlign = "center";
+for (let index = 0; index < 5; index += 1) {
+  for (let index = 0; index < 5; index += 1) {
+    let divPixel = document.createElement("div");
+    divPixel.className = "pixel";
+    divPixel.style.border = "1px solid black";
+    divPixel.style.width = "40px";
+    divPixel.style.margin = "3px";
+    divPixel.style.height = "40px";
+    divPixel.style.display = "inline-block";
+    divPixel.style.backgroundColor = "white";
+    pixelBoard.appendChild(divPixel);
+  };
+};
 
