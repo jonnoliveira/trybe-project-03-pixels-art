@@ -115,7 +115,7 @@ for (let index = 0; index < 5; index += 1) {
 let firstPalette = document.getElementsByClassName("color")[0];
 firstPalette.classList.add("selected");
 
-///// FUNÇÃO SELECIONAR PALETA E PREENCHER PIXELS
+///// FUNÇÃO SELECIONAR PALETA 
 
 function clickSelectorColor() {
   ///SELECIONA TODAS DIVS DAS CORES INICIAIS E ADD EVENTO PRA ELAS
@@ -128,8 +128,50 @@ function clickSelectorColor() {
       selectedColor.classList.remove("selected");
       ///ADICIONA A CLASSE A UM UNICO ELEMENTO
       element.classList.add("selected");
+      console.log(element);
     });
   });
 };
 
 clickSelectorColor();
+
+///// FUNÇÃO PEGAR COR DO PIXEL 
+
+document.querySelectorAll(".color").forEach(function (element) {
+  element.addEventListener("click", function (event) {
+    let pixelColor = event.target;
+    let object = window.getComputedStyle(pixelColor, null);
+    stylePixel = object.getPropertyValue("background-color");
+    console.log('cor retirada: ', stylePixel);
+  });
+});
+
+///// FUNÇÃO PREENCHER PIXELS COM COR SELECIONADA
+function paintColorPixel() {
+  document.querySelectorAll(".pixel").forEach(function (element) {
+    stylePixel = 'rgb(0,0,0)';
+    element.addEventListener("click", function (event) {
+      let cor = stylePixel;
+      let pixelColor = event.target;
+      pixelColor.style.backgroundColor = cor;
+      console.log('cor colocada: ', cor);
+    });
+  });
+}
+
+paintColorPixel();
+
+
+
+
+
+
+
+// let colorStorage = [];
+// for (index = 0; index < divIndex.length; index += 1) {
+//   let object = window.getComputedStyle(divIndex[index], null);
+//   let styleObj = object.getPropertyValue("background-color");
+//   colorStorage.push(styleObj);
+// };
+// });
+// console.log(colorStorage);
