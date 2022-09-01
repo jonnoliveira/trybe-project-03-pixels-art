@@ -128,7 +128,6 @@ function clickSelectorColor() {
       selectedColor.classList.remove("selected");
       ///ADICIONA A CLASSE A UM UNICO ELEMENTO
       element.classList.add("selected");
-      console.log(element);
     });
   });
 };
@@ -142,7 +141,6 @@ document.querySelectorAll(".color").forEach(function (element) {
     let pixelColor = event.target;
     let object = window.getComputedStyle(pixelColor, null);
     stylePixel = object.getPropertyValue("background-color");
-    console.log('cor retirada: ', stylePixel);
   });
 });
 
@@ -155,7 +153,6 @@ function paintColorPixel() {
       let cor = stylePixel;
       let pixelColor = event.target;
       pixelColor.style.backgroundColor = cor;
-      console.log('cor colocada: ', cor);
     });
   });
 }
@@ -185,13 +182,25 @@ function btnClearBoard() {
 
 btnClearBoard()
 
+///// FUNÇÃO LOCALSTORAGE PARA DESENHO ATUAL
 
+function saveColorPixels() {
+  let pixelBoardPalettes = document.getElementsByClassName('pixel');
+  for (let index = 0; index < pixelBoardPalettes.length; index += 1) {
+    let colorStorage = [];
+    pixelBoardPalettes[index].addEventListener("click", function (saveColor) {
+      for (let index = 0; index < pixelBoardPalettes.length; index += 1) {
+        let object = window.getComputedStyle(pixelBoardPalettes[index], null);
+        let styleObj = object.getPropertyValue("background-color");
+        colorStorage.push(styleObj);
+        localStorage.setItem("pixelBoard", JSON.stringify(colorStorage));
+      }
+    })
+  }
+  let memory = JSON.parse(localStorage.getItem("pixelBoard"));
+  for (index in memory) {
+    pixelBoardPalettes[index].style.backgroundColor = memory[index]
+  }
+}
 
-// let colorStorage = [];
-// for (index = 0; index < divIndex.length; index += 1) {
-//   let object = window.getComputedStyle(divIndex[index], null);
-//   let styleObj = object.getPropertyValue("background-color");
-//   colorStorage.push(styleObj);
-// };
-// });
-// console.log(colorStorage);
+saveColorPixels();
