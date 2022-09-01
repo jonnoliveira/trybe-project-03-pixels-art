@@ -110,3 +110,26 @@ for (let index = 0; index < 5; index += 1) {
   };
 };
 
+///// PALETA PRETA CLASS SELECTED DEFAULT
+
+let firstPalette = document.getElementsByClassName("color")[0];
+firstPalette.classList.add("selected");
+
+///// FUNÇÃO SELECIONAR PALETA E PREENCHER PIXELS
+
+function clickSelectorColor() {
+  ///SELECIONA TODAS DIVS DAS CORES INICIAIS E ADD EVENTO PRA ELAS
+  document.querySelectorAll(".color").forEach(function (add) {
+    add.addEventListener("click", function (event) {
+      ///SELECIONA O ELEMENTO QUE VAI RECEBER O EVENTO E CAPTURA
+      let element = event.target;
+      ///SELECIONA O ELEMENTO QUE CONTEM A CLASSE REQUERIDA E EXCLUI
+      let selectedColor = document.querySelector(".selected");
+      selectedColor.classList.remove("selected");
+      ///ADICIONA A CLASSE A UM UNICO ELEMENTO
+      element.classList.add("selected");
+    });
+  });
+};
+
+clickSelectorColor();
