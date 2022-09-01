@@ -93,19 +93,25 @@ saveColorsPallete();
 
 ///// PIXEL BOARD E COR INICIAL PIXELS
 
-let pixelBoard = document.getElementById("pixel-board");
-pixelBoard.style.width = "250px";
-pixelBoard.style.textAlign = "center";
+let main = document.getElementById('main');
+let sectionBoard = document.createElement('section');
+sectionBoard.id = 'pixel-board'
+main.appendChild(sectionBoard);
+let pixelBoard = document.getElementById('pixel-board');
+
 for (let index = 0; index < 5; index += 1) {
+  let divP = document.createElement('div');
+  pixelBoard.appendChild(divP);
+  let divPixel = document.createElement('div');
   for (let index = 0; index < 5; index += 1) {
-    let divPixel = document.createElement("div");
-    divPixel.className = "pixel";
-    divPixel.style.border = "1px solid black";
-    divPixel.style.width = "40px";
-    divPixel.style.margin = "3px";
-    divPixel.style.height = "40px";
-    divPixel.style.display = "inline-block";
-    divPixel.style.backgroundColor = "white";
+    let divPixel = document.createElement('div');
+    divPixel.className = 'pixel';
+    divPixel.style.border = '1px solid black';
+    divPixel.style.width = '40px';
+    divPixel.style.margin = '1px';
+    divPixel.style.height = '40px';
+    divPixel.style.display = 'inline-block';
+    divPixel.style.backgroundColor = 'white';
     pixelBoard.appendChild(divPixel);
   };
 };
@@ -204,3 +210,53 @@ function saveColorPixels() {
 }
 
 saveColorPixels();
+
+///// INPUT PARA NOVO TAMANHO DE QUADRO PIXELS
+
+let inputVqv = document.getElementById('board-size');
+let number = 0;
+inputVqv.addEventListener("input", function (event) {
+  let target = event.target;
+  number = target.value;
+});
+
+///// FUNÇÃO BOTÃO INPUT VQV
+
+function btnVqv() {
+  let btn = document.getElementById('generate-board');
+  btn.addEventListener("click", function (copyNumber) {
+    let rmvSectPixel = document.getElementById('pixel-board');
+    rmvSectPixel.remove();
+    copyNumber = number;
+    console.log(copyNumber);
+    let sectionBoard = document.createElement('section');
+    sectionBoard.id = 'pixel-board'
+    main.appendChild(sectionBoard);
+    if (number === 0 || number === undefined){
+      alert('Board inválido!');
+    }
+    for (let index = 0; index < copyNumber; index += 1) {
+      let divP = document.createElement('div');
+      sectionBoard.appendChild(divP);
+      let divPixel = document.createElement('div');
+      for (let index = 0; index < copyNumber; index += 1) {
+        let divPixel = document.createElement("div");
+        divPixel.className = "pixel";
+        divPixel.style.border = "1px solid black";
+        divPixel.style.width = "40px";
+        divPixel.style.margin = "1px";
+        divPixel.style.height = "40px";
+        divPixel.style.display = "inline-block";
+        divPixel.style.backgroundColor = "white";
+        sectionBoard.appendChild(divPixel);
+      };
+    };
+
+    paintColorPixel();
+    saveColorPixels();
+    btnClearBoard()
+    saveColorsPallete();
+  });
+}
+
+btnVqv();
