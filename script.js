@@ -41,10 +41,10 @@ function randomColor() {
 
 //// BOTÃO E CORES ALEATÓRIAS
 
-let button = document.createElement("button");
-button.id = "button-random-color";
-button.innerText = "Cores aleatórias";
-localPalet.appendChild(button);
+let btnRandom = document.createElement("button");
+btnRandom.id = "button-random-color";
+btnRandom.innerText = "Cores aleatórias";
+localPalet.appendChild(btnRandom);
 
 //// FUNÇÃO BOTÃO - ALEATORIEDADE DAS CORES
 
@@ -147,6 +147,7 @@ document.querySelectorAll(".color").forEach(function (element) {
 });
 
 ///// FUNÇÃO PREENCHER PIXELS COM COR SELECIONADA
+
 function paintColorPixel() {
   document.querySelectorAll(".pixel").forEach(function (element) {
     stylePixel = 'rgb(0,0,0)';
@@ -161,9 +162,28 @@ function paintColorPixel() {
 
 paintColorPixel();
 
+///// BOTÃO CLEAR BOARD
 
+let btnClear = document.createElement('button');
+let btnClearPosition = document.getElementById('bottom-clear-position');
+btnClear.id = 'clear-board';
+btnClear.innerText = 'Limpar';
+btnClear.display = 'block';
+btnClearPosition.appendChild(btnClear);
 
+///// FUNÇÃO BOTÃO - BOARD RETORNA PARA WHITE
 
+function btnClearBoard() {
+  let btn = document.getElementById('clear-board');
+  let pixelBoardPalettes = document.getElementsByClassName('pixel');
+  btn.addEventListener("click", function (whiteBoard) {
+    for (let index = 0; index < pixelBoardPalettes.length; index += 1) {
+      pixelBoardPalettes[index].style.backgroundColor = 'white';
+    }
+  });
+}
+
+btnClearBoard()
 
 
 
