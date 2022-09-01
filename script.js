@@ -212,14 +212,23 @@ function saveColorPixels() {
 saveColorPixels();
 
 ///// INPUT PARA NOVO TAMANHO DE QUADRO PIXELS
+///// FUNÇÃO LIMITE BOARD
 
 let inputVqv = document.getElementById('board-size');
 let number = 0;
+
 inputVqv.addEventListener("input", function (event) {
   let target = event.target;
-  number = target.value;
+  let inputNumber = target.value;
+  number = parseInt(inputNumber);
+  if (number < 5) {
+    number = 5;
+  } else if (number > 50){
+    number = 50;
+  }
+  console.log(number);
 });
-
+console.log('>>>', number);
 ///// FUNÇÃO BOTÃO INPUT VQV
 
 function btnVqv() {
@@ -232,7 +241,7 @@ function btnVqv() {
     let sectionBoard = document.createElement('section');
     sectionBoard.id = 'pixel-board'
     main.appendChild(sectionBoard);
-    if (number === 0 || number === undefined){
+    if (number === 0 || number === undefined) {
       alert('Board inválido!');
     }
     for (let index = 0; index < copyNumber; index += 1) {
@@ -260,3 +269,35 @@ function btnVqv() {
 }
 
 btnVqv();
+
+///// FUNÇÃO LIMITE BOARD
+
+// let btn = document.getElementById('generate-board');
+// btn.addEventListener("click", function (copyNumber) {
+//   let rmvSectPixel = document.getElementById('pixel-board');
+//   rmvSectPixel.remove();
+//   copyNumber = number;
+//   console.log(copyNumber);
+//   let sectionBoard = document.createElement('section');
+//   sectionBoard.id = 'pixel-board'
+//   main.appendChild(sectionBoard);
+//   if (number === 0 || number === undefined) {
+//     alert('Board inválido!');
+//   }
+//   for (let index = 0; index < copyNumber; index += 1) {
+//     let divP = document.createElement('div');
+//     sectionBoard.appendChild(divP);
+//     let divPixel = document.createElement('div');
+//     for (let index = 0; index < copyNumber; index += 1) {
+//       let divPixel = document.createElement("div");
+//       divPixel.className = "pixel";
+//       divPixel.style.border = "1px solid black";
+//       divPixel.style.width = "40px";
+//       divPixel.style.margin = "1px";
+//       divPixel.style.height = "40px";
+//       divPixel.style.display = "inline-block";
+//       divPixel.style.backgroundColor = "white";
+//       sectionBoard.appendChild(divPixel);
+//     };
+//   };
+// })
