@@ -161,7 +161,7 @@ function paintColorPixel() {
   });
 }
 
-paintColorPixel();
+// paintColorPixel();
 
 // ///// BOTÃO CLEAR BOARD
 
@@ -203,7 +203,7 @@ function saveColorPixels() {
   }
 }
 
-saveColorPixels();
+// saveColorPixels();
 
 ///// FUNÇÃO BACKUP LOCALSTORAGE PARA DESENHO ATUAL
 
@@ -215,7 +215,6 @@ function backupColorsPixels() {
   }
 }
 
-backupColorsPixels();
 
 
 ///// INPUT PARA NOVO TAMANHO DE QUADRO PIXELS
@@ -293,8 +292,6 @@ function btnVqv() {
       }
     }
     paintColorPixel();
-    saveColorPixels();
-    backupColorsPixels();
   })
 }
 btnVqv();
@@ -304,7 +301,7 @@ btnVqv();
 /// IMPRIMIR NOVO BOARD
 
 function newBoardSize() {
-  let numberMemory = JSON.parse(localStorage.getItem("boardSize"));
+  const numberMemory = JSON.parse(localStorage.getItem("boardSize"));
   if (numberMemory > number) {
     let main = document.getElementById('main');
     let rmvSectPixel = document.getElementById('pixel-board');
@@ -333,7 +330,10 @@ function newBoardSize() {
   }
   paintColorPixel();
   saveColorPixels();
-  backupColorsPixels();
 }
 newBoardSize();
+saveColorPixels();
+backupColorsPixels();
 
+
+// localStorage.removeItem('pixelBoard');
