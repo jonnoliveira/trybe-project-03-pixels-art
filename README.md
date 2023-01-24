@@ -2,7 +2,7 @@
 
 ## Esse projeto pertence ao módulo de `fundamentos` do curso da [Trybe](https://www.betrybe.com/) :green_heart:
 
-## :construction: CSS em contrução :construction:
+## :construction: CSS em aprimoramento :construction:
  
 <details>
  
