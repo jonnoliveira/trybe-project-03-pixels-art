@@ -91,6 +91,6 @@ O objetivo deste projeto foi criar um quadro composto por pixels e uma paleta de
 </summary>
 
   
-![Project-Pixel-Art-Grade]()
+![Project-Pixel-Art-Preview]()
   
 </details>
