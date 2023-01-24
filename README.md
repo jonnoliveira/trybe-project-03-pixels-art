@@ -76,7 +76,7 @@ O objetivo deste projeto foi criar um quadro composto por pixels e uma paleta de
 
 ## 100% :heavy_check_mark:
 
-![Project-Pixel-Art-Grade]()
+![Project-Pixel-Art-Grade](https://github.com/jonnoliveira/trybe-project-03-pixels-art/blob/main/image/pixel-art-grade.png)
 
 </details> 
  
