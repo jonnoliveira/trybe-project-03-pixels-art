@@ -91,6 +91,6 @@ O objetivo deste projeto foi criar um quadro composto por pixels e uma paleta de
 </summary>
 
   
-![Project-Pixel-Art-Preview]()
+![Project-Pixel-Art-Preview](https://github.com/jonnoliveira/trybe-project-03-pixels-art/blob/main/image/pixel-art-preview1.png)
   
 </details>
