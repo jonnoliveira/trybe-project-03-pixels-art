@@ -1,14 +1,45 @@
-body {
-  margin: 0px;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'VT323', monospace;
 }
 
-header {
-  border: 2px solid red;
+.container {
+  padding: 3vw;
+  background: 
+    linear-gradient(rgba(143, 142, 142, 0.329), rgba(0, 0, 0, 0.671)),
+    url(https://wallpaperaccess.com/full/5927911.gif) no-repeat;
+  background-size: cover;
+  min-height: 100vh;
 }
 
-section {
-  border: 2px solid red;
+.header {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+#title {
+  font-size: 3em;
+  color: blueviolet;
+}
+
+#palette {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
+  align-items: center;
+  justify-items: center;
+}
+
+#color-palette {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
 .color {
   border: 1px solid black;
   width: 20px;
@@ -17,6 +48,95 @@ section {
   display: inline-block;
 }
 
-button {
-  border: 2px solid red;
+#button-random-color {
+  height: 5vh;
+  border-radius: 15px;
+  margin-top: 2vh;
+  border: none;
+  text-transform: uppercase;
+  font-size: 1em;
+  letter-spacing: 2px;
+  font-weight: 600;
+  width: 70vw;
+}
+
+#btn-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 2vh;
+  align-items: center;
+}
+
+#board-size {
+  width: 40vw;
+  height: 5vh;
+  border-radius: 15px;
+  border: 0.7px solid grey;
+  padding-left: 5vw;
+  font-size: 1.2em;
+  outline-offset: 3px solid purple ;
+}
+
+#board-size::placeholder {
+  font-style: italic;
+}
+
+#generate-board, #clear-board {
+  width: 20vw;
+  font-size: 1em;
+}
+
+#main {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding: 5vh;
+}
+
+@media screen and (min-width : 1024px ){
+  
+  #title {
+    font-size: 4em;
+  }
+
+  #button-random-color {
+    border-radius: 25px;
+    font-size: 1.3em;
+    border: none;
+    width: 40vw;
+    cursor: pointer;
+  }
+
+  #board-size {
+    border-radius: 25px;
+    border: 0.7px solid grey;
+    font-size: 1.4em;
+    width: 30vw;
+    cursor: pointer;
+  }
+
+  #generate-board, #clear-board {
+    height: 4vh;
+    font-size: 1.3em;
+    cursor: pointer;
+  }
+
+  .pixel {
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width : 1440px ){
+  
+  #title {
+    font-size: 5em;
+  }
+
+  #board-size {
+    font-size: 1.5em;
+  }
+
+  #generate-board, #clear-board {
+    font-size: 1.4em;
+  }
 }

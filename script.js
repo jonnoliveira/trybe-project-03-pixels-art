@@ -1,4 +1,3 @@
-////  REQUISITO 2 E 3
 ////  PALETA DE CORES
 
 const localPalet = document.getElementById('color-palette');
@@ -36,10 +35,11 @@ function randomColor() {
 
 //// BOTÃO E CORES ALEATÓRIAS
 
+const palette = document.getElementById('palette');
 let btnRandom = document.createElement("button");
 btnRandom.id = "button-random-color";
 btnRandom.innerText = "Cores aleatórias";
-localPalet.appendChild(btnRandom);
+palette.appendChild(btnRandom);
 
 // //// FUNÇÃO BOTÃO - ALEATORIEDADE DAS CORES
 
@@ -100,9 +100,9 @@ for (let index = 0; index < 5; index += 1) {
     let divPixel = document.createElement('div');
     divPixel.className = 'pixel';
     divPixel.style.border = '1px solid black';
-    divPixel.style.width = '40px';
+    divPixel.style.width = '20px';
     divPixel.style.margin = '1px';
-    divPixel.style.height = '40px';
+    divPixel.style.height = '20px';
     divPixel.style.display = 'inline-block';
     divPixel.style.backgroundColor = 'white';
     pixelBoard.appendChild(divPixel);
@@ -156,12 +156,10 @@ function paintColorPixel() {
   });
 }
 
-// paintColorPixel();
-
 // ///// BOTÃO CLEAR BOARD
 
 let btnClear = document.createElement('button');
-let btnClearPosition = document.getElementById('bottom-clear-position');
+let btnClearPosition = document.getElementById('btn-container');
 btnClear.id = 'clear-board';
 btnClear.innerText = 'Limpar';
 btnClear.display = 'block';
@@ -198,8 +196,6 @@ function saveColorPixels() {
   }
 }
 
-// saveColorPixels();
-
 ///// FUNÇÃO BACKUP LOCALSTORAGE PARA DESENHO ATUAL
 
 function backupColorsPixels() {
@@ -209,8 +205,6 @@ function backupColorsPixels() {
     pixelBoardPalettes[index].style.backgroundColor = memory[index];
   }
 }
-
-
 
 ///// INPUT PARA NOVO TAMANHO DE QUADRO PIXELS
 ///// LIMITE BOARD
@@ -258,9 +252,9 @@ function btnVqv() {
           let divPixel = document.createElement("div");
           divPixel.className = "pixel";
           divPixel.style.border = "1px solid black";
-          divPixel.style.width = "40px";
+          divPixel.style.width = "20px";
           divPixel.style.margin = "1px";
-          divPixel.style.height = "40px";
+          divPixel.style.height = "20px";
           divPixel.style.display = "inline-block";
           divPixel.style.backgroundColor = "white";
           sectionBoard.appendChild(divPixel);
@@ -277,9 +271,9 @@ function btnVqv() {
           let divPixel = document.createElement("div");
           divPixel.className = "pixel";
           divPixel.style.border = "1px solid black";
-          divPixel.style.width = "40px";
+          divPixel.style.width = "20px";
           divPixel.style.margin = "1px";
-          divPixel.style.height = "40px";
+          divPixel.style.height = "20px";
           divPixel.style.display = "inline-block";
           divPixel.style.backgroundColor = "white";
           sectionBoard.appendChild(divPixel);
@@ -313,9 +307,9 @@ function newBoardSize() {
         let divPixel = document.createElement('div');
         divPixel.className = 'pixel';
         divPixel.style.border = '1px solid black';
-        divPixel.style.width = '40px';
+        divPixel.style.width = '20px';
         divPixel.style.margin = '1px';
-        divPixel.style.height = '40px';
+        divPixel.style.height = '20px';
         divPixel.style.display = 'inline-block';
         divPixel.style.backgroundColor = 'white';
         pixelBoard.appendChild(divPixel);
@@ -329,6 +323,3 @@ function newBoardSize() {
 newBoardSize();
 saveColorPixels();
 backupColorsPixels();
-
-
-// localStorage.removeItem('pixelBoard');
